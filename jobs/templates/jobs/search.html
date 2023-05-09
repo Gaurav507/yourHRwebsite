@@ -1,0 +1,38 @@
+{% extends 'jobs/base.html' %}
+{% load static %}
+<!--  -->
+{% block content %}
+    <h1 style="text-align: center;">Get hired now!</h1>
+    <form class="container-fluid" method="get" action="/jobs/search">
+        <div class="input-group">
+          <input type="text" name="query" id="search" class="form-control" placeholder="Search your Dream Job" aria-label="Username" aria-describedby="basic-addon1">
+          <span class="input-group-text btn btn-outline-primary" id="basic-addon1">Search</span>
+        </div>
+    </form>
+    <hr>
+    {% if filteredjobs|length < 1 %}
+        <h3>No search results</h3>
+    {% endif %}
+    <div class="container bordersss" style="display: flex;flex-wrap: wrap;">
+        {% for job in filteredjobs %}
+        <div class="card bordersss column">
+            <div class="card-body">
+            <h5 class="card-title">{{ job.role }}</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">{{ job.companyName }}</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="card-link btn">Apply Now</a>
+            <a href="{% url 'job-detail' job.pk %}" class="card-link btn">More Info</a>
+            </div>
+        </div>
+    
+        <!-- <h2>{{ job.role }}</h2>
+        <h4>{{ job.companyName }}</h4>
+        <hr>
+        <h3>{{ job.location }}</h3>
+        <h3>{{ job.salary }}</h3>
+        <h3>{{ job.experience }}</h3>
+        <h3>{{ job.qualifications }}</h3>
+        <a href="{% url 'job-detail' job.pk %}">Know more</a> -->
+        {% endfor %}
+    <!-- </div> -->
+{% endblock content %}

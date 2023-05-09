@@ -1,0 +1,20 @@
+{% extends 'jobs/base.html' %}
+
+<!--  -->
+{% block content %}
+    <h2 style="text-align: center;">{{ object.role }} at {{ object.companyName }}</h2>
+    <hr>
+    <hr>
+    <div class="container border">
+        <h3>{{ object.role }}</h3>
+        <h4>{{ object.companyName }}</h4>
+        <br>
+        <h4>{{ object.location }}  ||  CTC: ${{ object.salary }}  ||  EXPERIENCE : {{ object.experience }}years</h4>
+        <h3>Key Responsibilities :</h3>
+        <h5>{{ object.responsibilities }}</h5>
+        <h3>Skills Required : </h3>
+        <h5>{{ object.qualifications }}</h5>
+        
+    </div>
+    
+{% endblock content %}
