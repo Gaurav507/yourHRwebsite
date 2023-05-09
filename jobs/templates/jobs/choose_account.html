@@ -1,0 +1,11 @@
+{% extends 'jobs/base.html' %}
+
+<!--  -->
+{% block content %}
+<div class="container">
+    <h1>Choose your account type : </h1>
+    <a class="nav-link" href="{% url 'create-applicant' %}"><button class="btn btn-outline-primary">Job Applicant</button></a>
+    <a class="nav-link" href="{% url 'create-provider' %}"><button class="btn btn-outline-primary">Job Provider</button></a>
+</div>   
+    
+{% endblock content %}
